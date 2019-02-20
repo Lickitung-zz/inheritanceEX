@@ -42,11 +42,26 @@ class Manager < Employee
       i += 1
     end
   end
+
+  def fire_employees
+    @employees.each do |employees|
+      employees.active = false
+    end
+  end
+
 end
 
 manager = Manager.new(first_name: "Saron", last_name: "Yitbarek", salary: 100000, active: true, employees: [employee1, employee2])
-
+# give raises to employees
 manager.give_employees_raise
 
 employee1.print_info
 employee2.print_info
+
+puts "-------------"
+
+#fires the employees
+manager.fire_employees
+
+p employee1
+p employee2
